@@ -1,0 +1,29 @@
+{{!-- need to be included in context of a post --}}
+<div class="js-prev-next-post prev-next-post">
+    {{#prev_post}}
+        <div class="prev-block">
+            <a href="{{url}}">
+                <span class="image">
+                    <img src="{{image}}" alt="" class="post-image-thumbnail">
+                </span>
+                <span class="description">
+                    <span class="prev-next-label">Previous post</span>
+                    <span class="post-title">{{title}}</span>
+                </span>
+            </a>
+        </div>
+    {{/prev_post}}
+    {{#next_post}}
+        <div class="next-block">
+            <a href="{{url}}">
+                <span class="image">
+                    <img src="{{image}}" alt="" class="post-image-thumbnail">
+                </span>
+                <span class="description">
+                    <span class="prev-next-label">Next post</span>
+                    <span class="post-title">{{title}}</span>
+                </span>
+            </a>
+        </div>
+    {{/next_post}}
+</div>
