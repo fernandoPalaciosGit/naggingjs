@@ -11,15 +11,15 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-  		url: 'http://alquiler-pisos.herokuapp.com/',
+  		url: 'http://naggingjs.herokuapp.com/',
       database: {
         client: 'pg',
         connection: {
-          host : process.env.DB_HOST,
-          user : process.env.DB_USERNAME,
-          password : process.env.DB_PASS,
+          host : process.env.DB_PORTFOLIO_HOST,
+          user : process.env.DB_PORTFOLIO_USERNAME,
+          password : process.env.DB_PORTFOLIO_PASS,
           database : process.env.DB_PORTFOLIO_DBNAME,
-          port: process.env.DB_PORT
+          port: process.env.DB_PORTFOLIO_PORT
         },
     		debug: false
       },
@@ -34,7 +34,7 @@ config = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: 'http://localhost:' + process.env.PORT,
+        url: 'http://localhost:' + Number(process.env.PORT || 8080),
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -56,11 +56,12 @@ config = {
         database: {
             client: 'pg',
             connection: {
-		          host : process.env.DB_HOST,
-		          user : process.env.DB_USERNAME,
-		          password : process.env.DB_PASS,
+		          host : process.env.DB_PORTFOLIO_HOST,
+		          user : process.env.DB_PORTFOLIO_USERNAME,
+		          password : process.env.DB_PORTFOLIO_PASS,
 		          database : process.env.DB_PORTFOLIO_DBNAME,
-		          port: process.env.DB_PORT
+		          port: process.env.DB_PORTFOLIO_PORT,
+		          ssl: process.env.DB_HOST !== 'localhost'
 		        },
             debug: true
         },
@@ -70,7 +71,7 @@ config = {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: process.env.PORT
+            port: Number(process.env.PORT || 8080)
         },
         logging: true,
         // #### Paths
