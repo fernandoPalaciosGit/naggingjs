@@ -12,6 +12,16 @@ config = {
     // Configure your URL and mail settings here
     production: {
   		url: 'http://naggingjs.herokuapp.com/',
+  		mail: {
+           transport: 'SMTP',
+           options: {
+               service: 'Gmail',
+               auth: {
+                   user: process.env.GMAIL_NANDO_ACCOUNT,
+                   pass: process.env.GMAIL_NANDO_PASS
+               }
+           }
+       },
       database: {
         client: 'pg',
         connection: {
@@ -38,18 +48,16 @@ config = {
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
-        // ```
-        //  mail: {
-        //      transport: 'SMTP',
-        //      options: {
-        //          service: 'Mailgun',
-        //          auth: {
-        //              user: '', // mailgun username
-        //              pass: ''  // mailgun password
-        //          }
-        //      }
-        //  },
-        // ```
+         mail: {
+             transport: 'SMTP',
+             options: {
+                 service: 'Gmail',
+                 auth: {
+                     user: process.env.GMAIL_NANDO_ACCOUNT,
+                     pass: process.env.GMAIL_NANDO_PASS
+                 }
+             }
+         },
 
         // #### Database
         // Ghost supports sqlite3 (default), MySQL & PostgreSQL
